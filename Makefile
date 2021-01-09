@@ -1,11 +1,14 @@
 CC = g++
 STANDARD = -std=c++17
+NAME = slice.exe
 
 WFLAGS = -Wall -Wextra -Werror -Wpedantic
 OFLAGS = -Ofast -march=native -fomit-frame-pointer -flto
 CFLAGS = -pipe $(STANDARD)
 
-SRC = code\\*.cpp
+SRC = 2020\\solution\\*.cpp
 
-all:
-	@$(CC) $(WFLAGS) $(CFLAGS) $(OFLAGS) $(SRC)
+all: $(NAME)
+
+$(NAME):
+	@$(CC) $(WFLAGS) $(CFLAGS) $(OFLAGS) $(SRC) -o $@
