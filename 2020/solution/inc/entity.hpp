@@ -3,13 +3,11 @@
 #include <chrono>
 #include <fstream>
 #include <iostream>
+#include <memory>
 #include <numeric>
 #include <random>
+#include <string>
 #include <vector>
-
-/**
- * Generic Algorithm
- */
 
 using Slices = std::vector<int>;
 using Indexes = std::vector<int>;
@@ -28,7 +26,6 @@ public:
 
     void examine(const Slices &slices);
     void validate();
-
-    void crossover(Entity &entity);
-    void mutation();
 };
+
+using Entities = std::vector<Entity>;
