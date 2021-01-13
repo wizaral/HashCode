@@ -15,15 +15,10 @@ int Entity::score() const {
     return m_score;
 }
 
-void Entity::examine(const Indexes &slices) {
+void Entity::examine(const Slices &slices) {
     m_score = 0;
 
-    for (auto i : m_indexes) {
-        m_score += slices[i];
+    for (std::size_t i = 0, j = slices.size(); i < j; ++i) {
+        m_score += slices[i] * m_indexes[i];
     }
-}
-
-void Entity::validate() {
-    std::sort(m_indexes.begin(), m_indexes.end());
-    m_indexes.erase(std::unique(m_indexes.begin(), m_indexes.end()), m_indexes.end());
 }

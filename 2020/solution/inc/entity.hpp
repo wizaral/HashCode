@@ -10,7 +10,7 @@
 #include <vector>
 
 using Slices = std::vector<int>;
-using Indexes = std::vector<int>;
+using Indexes = std::vector<bool>;
 
 class Entity {
     Indexes m_indexes;
@@ -25,7 +25,6 @@ public:
     int score() const;
 
     void examine(const Slices &slices);
-    void validate();
 };
 
 using Entities = std::vector<Entity>;
