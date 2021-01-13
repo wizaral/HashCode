@@ -7,5 +7,4 @@ struct Crossover {
 
 struct Crossover0 : Crossover {
     Entities crossover(const Entities &entities) override;
-    void crossover(Indexes &lhs, Indexes &rhs);
 };
