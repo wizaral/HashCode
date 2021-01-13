@@ -6,7 +6,7 @@ STANDARD = -std=c++17
 
 WFLAGS = -Wall -Wextra -Werror -Wpedantic
 OFLAGS = -Ofast -march=native -fomit-frame-pointer -flto
-DFLAGS = -g3 -O0 -fno-omit-frame-pointer -ftrapv
+DFLAGS = -g3 -O0 -fno-omit-frame-pointer -ftrapv -fsanitize=address,undefined
 CFLAGS = -pipe $(STANDARD)
 
 INC20 = -I 2020/solution/inc
@@ -15,7 +15,10 @@ INC21 = -I 2021/solution/inc
 SRC20 = $(wildcard 2020/solution/src/*.cpp)
 SRC21 = $(wildcard 2021/solution/src/*.cpp)
 
-all: $(2020) $(2021)
+all: dirs $(2020) $(2021)
+
+dirs:
+	@mkdir -p 2020/output 2021/output
 
 $(2020): $(SRC20)
 	@$(CC) $(CFLAGS) $(WFLAGS) $(OFLAGS) $(INC20) $^ -o $@

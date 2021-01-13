@@ -35,3 +35,6 @@
 *.out
 *.exe
 *.app
+
+# special
+!202?/output/*.out
